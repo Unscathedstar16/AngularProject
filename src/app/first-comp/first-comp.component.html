@@ -1,0 +1,57 @@
+<h1>andre</h1>
+<input type="texts">
+<p>{{ title }}</p>
+<button [disabled]="isDisabled" (click)="fireFrm()">enter</button><br>
+<!--button (click)="shwBioData()">show data</button>-->
+
+<!--ng-if-->
+<h2>Ng-If hidden</h2>
+<input type="radio" name="dataType" (click)="chngActn('ty')" checked>data1
+<input type="radio" name="dataType" (click)="chngActn('st')">data2
+<div *ngIf="dataTyp == 'entryDt'">
+    <h4>name:{{dataType.name}}</h4>
+    <h4>dob:{{dataType.dob}}</h4>
+    <h4>num:{{dataType.num}}</h4>
+</div>
+<div *ngIf="dataTyp == 'entrySt'">
+    <h4>nam:{{dataType.name}}</h4>
+    <h4>dob:{{dataType.dob}}</h4>
+    <h4>num:{{dataType.num}}</h4>
+    <h4>sec:{{dataType.sec}}</h4>
+    <h4>cls:{{dataType.cls}}</h4>
+</div>
+<h2>Ng-If else and then</h2>
+<div *ngIf="bioDt == 'teacher'; then teacherBlk else studentBlk">
+    <p>This is then</p>
+</div>
+<ng-template #studentBlk>
+    <h4>name {{bioData.myName}}</h4>
+    <h4>age {{bioData.age}}</h4>
+    <h4>num {{bioData.num}}</h4>
+    <h4>edu {{bioData.edu}}</h4>
+</ng-template>
+<ng-template #teacherBlk>
+    <p>This is else</p>
+    <h4>name {{bioData.myName}}</h4>
+    <h4>age {{bioData.age}}</h4>
+</ng-template>
+
+<!--ng-for-->
+<h2>Ng-For</h2>
+<table>
+    <th>rollNO</th>
+    <th>name</th>
+    <th>class</th>
+    <th>section</th>
+    <th>age</th>
+    <th>contact</th>
+
+    <tr *ngFor="let stu of studentList">
+        <td>{{stu.rollNO}}</td>
+        <td>{{stu.name}}</td>
+        <td>{{stu.class}}</td>
+        <td>{{stu.section}}</td>
+        <td>{{stu.age}}</td>
+        <td>{{stu.contact}}</td>
+    </tr>
+</table>

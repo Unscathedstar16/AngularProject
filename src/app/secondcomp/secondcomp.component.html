@@ -1,0 +1,30 @@
+<!--Ng-Style-->
+<h2>Ng-Style</h2>
+<ul>
+    <li *ngFor="let ani of animeCln" [ngStyle]="{'color':ani.clan == 'uchiha'?'blue':'red'}">
+        {{ani.clan}}
+        {{ani.name}}
+    </li>
+</ul>
+<h2>Ng-Style with functions</h2>
+<ul>
+    <li *ngFor="let ani of animeCln" [ngStyle]="{'color':getColor(ani.clan)}">
+        {{ani.clan}}
+        {{ani.name | uppercase}}
+    </li>
+</ul>
+
+<!--ng pipes-->
+<h2>Pipes</h2>
+<p>{{months | slice:5:12}}</p>
+<p>{{marks | number:'0.8'}}</p>
+<p>{{num1 | percent:'2.2'}}</p>
+
+
+<h2>date pipes</h2>
+Full Date : {{todayDate}} <br />
+short Date: {{todayDate | date:'shortDate'}}<br />
+medium Date: {{todayDate | date:'mediumDate'}}<br />
+full Date: {{todayDate | date:'fullDate'}}<br />
+time: {{todayDate | date:'HH:MM'}}<br />
+time: {{todayDate | date:'hh:mm:ss a'}}
